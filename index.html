@@ -18,6 +18,17 @@
           <link rel="stylesheet" href="./css/master.css">
 
           <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+          <script type="text/javascript">
+               // BASIC SETTINGS
+               let answerServer = "./quiz/answer.php";
+
+               let question_id = 1;
+               let quiz_id = 'zUyj12';
+               let answers = JSON.parse('{"1": ["die();", "exit(", "die)", "die"]}');
+          </script>
+
+          <script src="./js/quiz.js" charset="utf-8"></script>
      </head>
      <body>
 
@@ -35,7 +46,7 @@
                     </li>
                     <li>
                          <img src="./assets/icons/turned_in-24px.svg" alt="">
-                         zUyj12
+                         <span id="quiz_id"></span>
                     </li>
                </ul>
           </div>
@@ -60,22 +71,22 @@
           </div>
 
           <div class="answers">
-               <div id="a1">
+               <div id="a1" onclick="sendAnswer(this)">
                     <span>A</span>
                     <br>
                     <h3>die();</h3>
                </div>
-               <div id="a2">
+               <div id="a2" onclick="sendAnswer(this)">
                     <span>B</span>
                     <br>
                     <h3>exit(</h3>
                </div>
-               <div id="a3">
+               <div id="a3" onclick="sendAnswer(this)">
                     <span>C</span>
                     <br>
                     <h3>die)</h3>
                </div>
-               <div id="a4">
+               <div id="a4" onclick="sendAnswer(this)">
                     <span>D</span>
                     <br>
                     <h3>die</h3>
@@ -89,6 +100,5 @@
                     <li>Datenschutz</li>
                </ul>
           </footer>
-
      </body>
 </html>
