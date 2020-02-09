@@ -18,7 +18,7 @@ function question(n) {
 function sendAnswer(answerblock) {
      let answer = answerblock.children[2].innerHTML;
 
-     let params = "q=" + encodeURIComponent(question_id) + "&a=" + encodeURIComponent(answer);
+     let params = "i=" + encodeURIComponent(quiz_id) + "&q=" + encodeURIComponent(question_id) + "&a=" + encodeURIComponent(answer);
 
      sendRequest(params, answerServer,
           function parseAnswer(json) {
