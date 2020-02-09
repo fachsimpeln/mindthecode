@@ -9,6 +9,10 @@
           $code = ltrim($code, '/mindthecode/g/');
 
           $_SESSION['code'] = $code;
+          if (!isset($_SESSION['question'])) {
+               $_SESSION['question'] = array();
+          }
+          $_SESSION['question'][$code] = array();
 
           header('Location: ../');
           die();
