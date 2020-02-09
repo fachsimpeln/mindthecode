@@ -1,0 +1,20 @@
+{
+     "title": "PHP Quiz",
+     "description": "PHP Quiz im Rahmen der Umfrage zum Code-Verständnis",
+     "instruction": "Vervollständige den hier angezeigten Code:",
+     "code": "code/sample.code",
+     "quiz": {
+          "1": [
+               "die();",
+               "exit(",
+               "die)",
+               "die"
+          ],
+          "2": [
+               "print('123');",
+               "println('123');",
+               "echoln('123')",
+               "echo;"
+          ]
+     }
+}
