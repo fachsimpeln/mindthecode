@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+     <head>
+          <meta charset="utf-8">
+          <title>mindthecode.</title>
+
+          <meta name="author" content="fachsimpeln">
+          <meta name="publisher" content="fachsimpeln">
+          <meta name="description" content="">
+
+          <meta name="page-topic" content="Medien">
+          <meta name="page-type" content="Produktinfo">
+          <meta name="audience" content="Alle">
+          <meta http-equiv="content-language" content="de">
+          <meta name="robots" content="index, nofollow">
+
+
+          <link rel="stylesheet" href="./css/master.css">
+
+          <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+     </head>
+     <body>
+
+          <div class="navbar">
+               <ul>
+                    <li>
+                         <img src="./assets/img/mindthecode-logo.png" alt="MindTheCode-Logo">
+                    </li>
+                    <li>
+                         mindthecode.
+                    </li>
+                    <li>
+                         <img src="./assets/icons/add_box-24px.svg" alt="">
+                         ERSTELLEN
+                    </li>
+                    <li>
+                         <img src="./assets/icons/turned_in-24px.svg" alt="">
+                         zUyj12
+                    </li>
+               </ul>
+          </div>
+
+          <div class="code">
+               <p>Vervollständige den hier angezeigten Code:</p>
+<pre>
+<code>&#x3C;?php
+          // SETUP
+          if (!isset($_GET[&#x27;id&#x27;])) {
+               die();
+          }
+
+          $pollid = $_GET[&#x27;id&#x27;];
+          if ($pollid == null) {
+               <span onclick="question(1);" class="empty">klicke hier</span>
+          }
+
+          $pollidorg = $pollid;
+</code>
+</pre>
+          </div>
+
+          <div class="answers">
+               <div id="a1">
+                    <span>A</span>
+                    <br>
+                    <h3>die();</h3>
+               </div>
+               <div id="a2">
+                    <span>B</span>
+                    <br>
+                    <h3>exit(</h3>
+               </div>
+               <div id="a3">
+                    <span>C</span>
+                    <br>
+                    <h3>die)</h3>
+               </div>
+               <div id="a4">
+                    <span>D</span>
+                    <br>
+                    <h3>die</h3>
+               </div>
+          </div>
+
+          <footer>
+               <ul>
+                    <li>copyright fachsimpeln 2020</li>
+                    <li>Impressum</li>
+                    <li>Datenschutz</li>
+               </ul>
+          </footer>
+
+     </body>
+</html>
