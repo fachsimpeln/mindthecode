@@ -32,10 +32,10 @@
           mtc_return('wrong', $correct_answer);
      }
 
-     if (isset($_SESSION['points'][$quiz])) {
-          $_SESSION['points'][$quiz] += 1;
+     if (isset($_SESSION['points'])) {
+          $_SESSION['points'] += 1;
      } else {
-          $_SESSION['points'][$quiz] = 1;
+          $_SESSION['points'] = 1;
      }
 
      mtc_return('correct', $correct_answer);

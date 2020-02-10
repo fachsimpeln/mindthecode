@@ -19,6 +19,12 @@
           $quiz_questions = str_replace("'", "\'" , json_encode($quiz_questions_ordered));
 
           $quiz_code = file_get_contents('./data/code/' . $quizfile['code']);
+
+          $points = 0;
+          if (isset($_SESSION['points'])) {
+               $points = intval($_SESSION['points']);
+          }
+
      } else {
           header('Location: ./g');
           die();
@@ -80,6 +86,10 @@
                     <li>
                          <img src="./assets/icons/turned_in-24px.svg" alt="">
                          <span id="quiz_id"></span>
+                    </li>
+                    <li>
+                         <img src="./assets/icons/iconfinder-bag-christmas-gift.svg" alt="">
+                         <span id="points"><?php echo PreventXSS($points) ?> Punkt(e)</span>
                     </li>
                </ul>
           </div>
