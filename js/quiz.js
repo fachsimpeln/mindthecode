@@ -12,6 +12,9 @@ function question(n) {
      document.getElementById('a3').children[2].innerHTML = answers[n][2];
      document.getElementById('a4').children[2].innerHTML = answers[n][3];
 
+     // show answer panel
+     document.getElementById('answerdiv').style.display = "block";
+
      question_id = n;
 }
 
