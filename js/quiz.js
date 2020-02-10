@@ -32,8 +32,36 @@ function sendAnswer(answerblock) {
                }
 
                // Parse response
-               console.log(json);
+               let status = json.status;
 
+               // Message correct/incorrect
+               if (status == 'correct') {
+                    // Message correct
+                    console.log("[mindthecode] The answer was correct: " + json.correct);
+               } else if (status == 'wrong') {
+                    // Message incorrect
+                    console.warn("[mindthecode] The answer was incorrect. The correct answer would've been " + json.correct);
+               }
+
+               // Error handling
+               if (status == 'error') {
+                    let error_msg = json.message;
+                    if (error_msg == 'wrong_quiz_id') {
+                         // Invalid quiz id
+                         console.error('[mindthecode] Invalid quiz-id');
+                    } else if (error_msg == 'already_played') {
+                         // Question already played
+                         console.error('[mindthecode] Question was already played in this session');
+                    } else if (error_msg == 'params_missing') {
+                         // Missing params
+                         console.error('[mindthecode] Missing parameters');
+                    } else {
+                         // Internal error
+                         console.error("[mindthecode] Internal error")
+                    }
+               }
+
+               //console.log(json);
           }
      );
 }
