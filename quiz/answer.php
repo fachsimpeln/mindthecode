@@ -27,8 +27,9 @@
      $_SESSION['question'][$quiz][] = $question;
 
      // correct answer is at position 0
-     if ($quizfile['quiz'][0] !== $answer) {
-          mtc_return('wrong', $quizfile['quiz'][0]);
+     $correct_answer =  $quizfile['quiz'][$question][0];
+     if ($correct_answer !== $answer) {
+          mtc_return('wrong', $correct_answer);
      }
 
      if (isset($_SESSION['points'][$quiz])) {
@@ -37,7 +38,7 @@
           $_SESSION['points'][$quiz] = 1;
      }
 
-     mtc_return('correct', $quizfile['quiz'][0]);
+     mtc_return('correct', $correct_answer);
 
 
      function mtc_showerror($errormessage)
