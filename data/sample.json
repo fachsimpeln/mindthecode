@@ -2,7 +2,7 @@
      "title": "PHP Quiz",
      "description": "PHP Quiz im Rahmen der Umfrage zum Code-Verständnis",
      "instruction": "Vervollständige den hier angezeigten Code:",
-     "code": "code/sample.code",
+     "code": "sample.html",
      "quiz": {
           "1": [
                "die();",
