@@ -55,6 +55,11 @@
 
 
           <link rel="stylesheet" href="./css/master.css">
+          <style>
+               table:first-child tr:first-child td:first-child {
+                    color: #333;
+               }
+          </style>
 
           <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
