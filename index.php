@@ -11,7 +11,12 @@
           }
           $quizfile = json_decode(file_get_contents($quizpath), true);
 
-          $quiz_questions = str_replace("'", "\'" , json_encode($quizfile['quiz']));
+          $quiz_questions_ordered = $quizfile['quiz'];
+          foreach ($quiz_questions_ordered as $key => $value) {
+               shuffle($quiz_questions_ordered[$key]);
+          }
+
+          $quiz_questions = str_replace("'", "\'" , json_encode($quiz_questions_ordered));
 
           $quiz_code = file_get_contents('./data/code/' . $quizfile['code']);
      } else {
