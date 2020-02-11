@@ -38,7 +38,7 @@ function sendAnswer(answerblock) {
                if (status == 'correct') {
                     // Message correct
                     console.log("[mindthecode] The answer was correct: " + json.correct);
-               } else if (status == 'wrong') {
+               } else if (status == 'incorrect') {
                     // Message incorrect
                     console.warn("[mindthecode] The answer was incorrect. The correct answer would've been " + json.correct);
                }

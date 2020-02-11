@@ -1,31 +1,51 @@
 <?php
+     // start the session
      session_name("mindthecode");
      session_start();
 
+     // check if quiz id is set
      if (isset($_SESSION['code'])) {
+          // get quiz code
           $quizcode = $_SESSION['code'];
+
+          // get filename for quiz id and urlencode it for security
           $quizpath = './data/' . urlencode($_SESSION['code']) . '.json';
+
+          // check if quiz id actually exists (file)
           if (!file_exists($quizpath)) {
+               // if it doesn't exist, redirect and die
                header('Location: ./g');
                die();
           }
+          // if it exists, decode and load the data in $quizfile
           $quizfile = json_decode(file_get_contents($quizpath), true);
 
+          // get all questions from the array and shuffle them (otherwise 1st would always be the correct answer)
           $quiz_questions_ordered = $quizfile['quiz'];
           foreach ($quiz_questions_ordered as $key => $value) {
                shuffle($quiz_questions_ordered[$key]);
           }
 
+          // replace all ' to \' to escape for javascript string
           $quiz_questions = str_replace("'", "\'" , json_encode($quiz_questions_ordered));
 
-          $quiz_code = file_get_contents('./data/code/' . $quizfile['code']);
+          // get the code for the current quiz and load it in $quiz_code_file
+          $quiz_code_file = file_get_contents('./data/code/' . $quizfile['code']);
 
+          // start points with zero
           $points = 0;
+          // if points already exist on current session, get them
           if (isset($_SESSION['points'])) {
                $points = intval($_SESSION['points']);
           }
 
+          // get quiz metadata (title, desc. and instructions)
+          $quiz_title = $quizfile['title'];
+          $quiz_description = $quizfile['description'];
+          $quiz_instruction = $quizfile['instruction'];
+
      } else {
+          // if quiz id is not set, redirect and die
           header('Location: ./g');
           die();
      }
@@ -33,6 +53,7 @@
 
      function PreventXSS($text)
      {
+          // remove all html special chars to prevent XSS attack vector
           return htmlspecialchars($text, ENT_QUOTES);
      }
 
@@ -100,9 +121,11 @@
           </div>
 
           <div class="code">
-               <p>Vervollständige den hier angezeigten Code:</p>
+               <h2><?php echo PreventXSS($quiz_title); ?></h2>
+               <h4><?php echo PreventXSS($quiz_description); ?></h4>
+               <p><?php echo PreventXSS($quiz_instruction); ?></p>
                <div>
-                    <?php echo $quiz_code; ?>
+                    <?php echo $quiz_code_file; ?>
                </div>
           </div>
 
