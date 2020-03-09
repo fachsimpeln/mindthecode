@@ -13,6 +13,7 @@
                $_SESSION['question'] = array();
           }
           $_SESSION['question'][$code] = array();
+          $_SESSION['points'][$code] = 0;
 
           header('Location: ../');
           die();
