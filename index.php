@@ -36,7 +36,9 @@
           $points = 0;
           // if points already exist on current session, get them
           if (isset($_SESSION['points'])) {
-               $points = intval($_SESSION['points']);
+               foreach ($_SESSION['points'] as $key => $value) {
+                    $points += intval($value);
+               }
           }
 
           // get quiz metadata (title, desc. and instructions)

@@ -42,10 +42,10 @@
 
      // if the session has already a points variable, increment it
      if (isset($_SESSION['points'])) {
-          $_SESSION['points'] += 1;
+          $_SESSION['points'][$quiz] += 1;
      } else {
           // if it doesn't have one, create it and set it to 1
-          $_SESSION['points'] = 1;
+          $_SESSION['points'][$quiz] = 1;
      }
      // answer is correct, so return 'correct', the correct answer again and then die
      mtc_return('correct', $correct_answer);
