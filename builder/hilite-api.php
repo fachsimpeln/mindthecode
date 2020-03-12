@@ -33,7 +33,7 @@
                $params .= '&lexer=' . urlencode(strtolower($this->lexer));
                $params .= '&style=' . urlencode($this->style);
                if ($linenumbers) {
-                    $params .= '&lineos=1';
+                    $params .= '&linenos=1';
                }
 
                return file_get_contents($url . $params);
